@@ -53,59 +53,6 @@ Envelope **2000 × 90 × 110 mm**, fabricated mass **6.54 kg** (6.28 kg aluminiu
 
 ![Chassis mount exploded](docs/mount-exploded.png)
 
-## Three decisions worth explaining
-
-### 1. The rail section was changed from flat bar to RHS
-
-This is the one place the completed model departs from what was drawn, and it
-is the reason the project needed finishing rather than just assembling. Running
-the beam case — simply supported at the two chassis plates 1700 mm apart, two
-clamp loads 550 mm inboard of each support, plus self weight:
-
-| Section | I (mm⁴) | Mass | Deflection | L/δ | σ | f₁ |
-|---|---|---|---|---|---|---|
-| Flat 90 × 8 *(as drawn)* | 3 840 | 3.89 kg | **15.74 mm** | L/108 | 14.2 MPa | **5.0 Hz** |
-| Flat 90 × 10 | 7 500 | 4.86 kg | 9.06 mm | L/188 | 10.2 MPa | 6.4 Hz |
-| **RHS 90 × 30 × 3** | **105 732** | **3.69 kg** | **0.56 mm** | L/3050 | 1.9 MPa | **26.4 Hz** |
-| RHS 90 × 40 × 3 | 204 872 | 4.02 kg | 0.30 mm | L/5669 | 1.4 MPa | 35.8 Hz |
-
-Stress is never the constraint — everything is far below the 240 MPa yield of
-6061-T6. The rail is **stiffness driven**, and stiffness is the criterion a
-first pass usually gets wrong, because a section that is nowhere near breaking
-still reads as "strong enough".
-
-The flat bar as drawn sags about 16 mm at the clamps, which visibly mis-aims a
-light bar, and its first bending mode lands at ~5 Hz — squarely inside the band
-a rover chassis excites over rough ground. The 90 × 30 × 3 RHS is 28× stiffer,
-moves the first mode to 26 Hz, and is *lighter* than the flat bar it replaces.
-Closing a hollow section buys second moment of area roughly as the square of
-depth while paying for it only in perimeter, which is why the trade comes out
-this lopsided.
-
-The original flat bar is still selectable: set `*RAIL-SECTION*` to `"FLAT"` in
-the LISP (and `RAIL_SECTION` in `params.py`) and everything regenerates.
-
-### 2. Crush tubes at every bolt
-
-A closed RHS collapses when you torque a bolt through both walls. Eight
-stainless sleeves sit in the cavity so the preload goes through the sleeve, not
-the tube wall. Without them, item 1 gets dented flat at all eight bolt positions
-on first assembly — and a dented rail has lost exactly the second moment of area
-decision 1 was made to buy.
-
-Stainless rather than aluminium: the sleeve carries the full clamp load in
-compression for the life of the bracket, and 304 does not creep the way a soft
-aluminium sleeve would under sustained preload.
-
-### 3. Ø54 bore for a Ø50 bar
-
-The original clamp bore matched the bar exactly, which leaves no room for the
-2 mm EPDM liner. The liner does two jobs: it grips the bar without point-loading
-it, and it keeps aluminium off the light-bar housing so the rail's 26 Hz mode
-does not fret through the anodising. A metal-on-metal clamp at that frequency
-polishes a flat into the bar and then loosens.
-
----
 
 ## The manufacturing drawing
 
