@@ -6,11 +6,6 @@ split clamps holding the light bar 45 mm above it.
 
 ![Assembly](docs/assembly-iso.png)
 
-Completed from an unfinished AutoCAD model (`front LED.dwg`, AutoCAD 2018
-format). The original contained seven loose solids and three construction
-lines, none of them assembled, dimensioned, or positioned relative to one
-another.
-
 ---
 
 ## Key features
@@ -30,44 +25,8 @@ another.
   bar — selectable from one parameter for anyone who wants to see the
   comparison.
 
-## What was in the original file
-
-Decoded from the DWG with LibreDWG and the embedded preview bitmap:
-
-| | |
-|---|---|
-| Units | millimetres (`INSUNITS = 4`) |
-| Model extents | X 1501.11 → 3501.11 (**2000.00**), Y 751.53 → 1961.16, Z −128.66 → 168.66 |
-| Entities | 7 × `3DSOLID`, 3 × `LINE`, all on layer `0` |
-| Solid history | 5 × `ACSH_EXTRUSION_CLASS` — the solids were made with EXTRUDE |
-| Layouts | `Layout1`, `Layout2` — both empty |
-
-![Original model](docs/original-model-preview.png)
-
-The seven solids account exactly for **1 rail + 2 mounting plates + 4 clamp
-halves**. The three lines are construction geometry, and they turned out to be
-the most useful thing in the file:
-
-| Line | Length | Reading |
-|---|---|---|
-| X 1551.115 → 1751.115 @ Y 1704.656 | 200 mm | left mounting-plate footprint, inset 50 mm from the rail end |
-| X 3251.115 → 3451.115 @ Y 1704.656 | 200 mm | right mounting-plate footprint, mirrored about X = 2501.115 |
-| X 2621.997 → 2741.997 @ Y 798.169 | 120 mm | bolt-hole pitch on the mounting plate |
-
-Both 200 mm lines sit at the same Y, are symmetric about the rail centre, and
-are inset 50 mm from the extreme X values. That fixes the rail at **2000 mm
-long**, the plates at **200 mm** with a **120 mm hole pitch**, and the mount
-span at **1700 mm** — and those four numbers drive the whole completed design.
-
-### What was missing
-
-- Parts were scattered in space, not assembled (clamps parked ~900 mm away in Y)
-- No bolt holes anywhere — the plates' holes were the only circular features
-- No layers, no materials, no drawing sheet, no BOM
-- No clearance between the clamp bore and the light bar
-- No structural check of the rail
-
 ---
+
 
 ## The completed design
 
