@@ -88,9 +88,6 @@ rather than from someone reading them off the model.
 
 ## Next steps and possible improvements
 
-- **Fit the rover's real numbers.** `RAIL_LEN` and `PLATE_CTR_X` are taken from
-  the original drawing's extents, not from the vehicle. They are the two
-  parameters most likely to be wrong.
 - **Confirm the light bar's actual mass**; 2.5 kg is assumed. Deflection and
   first-mode frequency scale roughly with √mass, so a 4 kg bar moves the 26 Hz
   result to about 21 Hz.
